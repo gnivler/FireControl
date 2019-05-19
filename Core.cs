@@ -29,6 +29,7 @@ public class Core
     public class Settings
     {
         public bool enableDebug = false;
+        public bool enableRangeSettings = false;
         public string modDirectory;
     }
 }

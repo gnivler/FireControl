@@ -9,7 +9,7 @@ using static Logger;
 public class Patches
 {
     [HarmonyPatch(typeof(CombatHUDWeaponPanel), "Update")]
-    public class CombatHUDWeaponPanel_Ctor_Patch
+    public class CombatHUDWeaponPanel_Update_Patch
     {
         private static bool energyState;
         private static bool ballisticState;
@@ -96,7 +96,7 @@ public class Patches
                 supportState = !supportState;
             }
 
-            var hotkeyF5 = Input.GetKeyDown(KeyCode.F5);
+            var hotkeyF5 = Core.ModSettings.enableRangeSettings && Input.GetKeyDown(KeyCode.F5);
             if (hotkeyF5)
             {
                 switch (closeRangeState)
@@ -113,7 +113,7 @@ public class Patches
                 closeRangeState = !closeRangeState;
             }
 
-            var hotkeyF6 = Input.GetKeyDown(KeyCode.F6);
+            var hotkeyF6 = Core.ModSettings.enableRangeSettings && Input.GetKeyDown(KeyCode.F6);
             if (hotkeyF6)
             {
                 switch (standardRangeState)
@@ -130,7 +130,7 @@ public class Patches
                 standardRangeState = !standardRangeState;
             }
 
-            var hotkeyF7 = Input.GetKeyDown(KeyCode.F7);
+            var hotkeyF7 = Core.ModSettings.enableRangeSettings && Input.GetKeyDown(KeyCode.F7);
             if (hotkeyF7)
             {
                 switch (longRangeState)
@@ -147,7 +147,7 @@ public class Patches
                 longRangeState = !longRangeState;
             }
 
-            var hotkeyF8 = Input.GetKeyDown(KeyCode.F8);
+            var hotkeyF8 = Core.ModSettings.enableRangeSettings && Input.GetKeyDown(KeyCode.F8);
             if (hotkeyF8)
             {
                 switch (veryLongRangeState)
@@ -164,7 +164,7 @@ public class Patches
                 veryLongRangeState = !veryLongRangeState;
             }
 
-            var hotkeyF9 = Input.GetKeyDown(KeyCode.F9);
+            var hotkeyF9 = Core.ModSettings.enableRangeSettings && Input.GetKeyDown(KeyCode.F9);
             if (hotkeyF9)
             {
                 switch (extremeRangeState)
