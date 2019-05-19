@@ -6,7 +6,7 @@ public static class Logger
 {
     internal static string LogFilePath =>
         Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName +
-        "\\DevMod.log.txt";
+        "\\FireControl.log.txt";
 
     public static void Error(Exception ex)
     {
@@ -21,7 +21,7 @@ public static class Logger
 
     public static void LogDebug(string line)
     {
-        //if (!DevMod.ModSettings.Debug) return;
+        if (!Core.ModSettings.enableDebug) return;
         using (var writer = new StreamWriter(LogFilePath, true))
         {
             writer.WriteLine(line);
@@ -38,10 +38,10 @@ public static class Logger
 
     public static void Clear()
     {
-        //if (!DevMod.ModSettings.Debug) return;
+        if (!Core.ModSettings.enableDebug) return;
         using (var writer = new StreamWriter(LogFilePath, false))
         {
-            writer.WriteLine($"{DateTime.Now.ToLongTimeString()} DevMod Init");
+            writer.WriteLine($"{DateTime.Now.ToLongTimeString()} FireControl Init");
         }
     }
 }
